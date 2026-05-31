@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Work Snapshot",
+  "description": "A small, read-only checkpoint report for AI agent work.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "agent_id",
+    "parent_task_id",
+    "observed_at",
+    "source",
+    "status",
+    "progress",
+    "current_focus",
+    "blockers",
+    "outputs",
+    "next_checkpoint_at",
+    "ttl_seconds"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "agent-work-snapshot/v1"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "pattern": "^snap_[a-zA-Z0-9._-]+$"
+    },
+    "agent_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "host_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "parent_task_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "status": {
+      "enum": [
+        "queued",
+        "working",
+        "blocked",
+        "checkpoint",
+        "completed_candidate",
+        "failed"
+      ]
+    },
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total",
+        "completed",
+        "blocked"
+      ],
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "completed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blocked": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "current_focus": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 500
+      },
+      "maxItems": 20
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 500
+      },
+      "maxItems": 50
+    },
+    "next_checkpoint_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "ttl_seconds": {
+      "type": "integer",
+      "minimum": 60,
+      "maximum": 604800
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "agent-work-snapshot/v1",
+  "snapshot_id": "snap_local_0001",
+  "agent_id": "example-local-agent",
+  "parent_task_id": "task-example-0004",
+  "observed_at": "2026-01-01T00:30:00Z",
+  "source": "api_push",
+  "status": "completed_candidate",
+  "progress": {"total": 2, "completed": 2, "blocked": 0},
+  "current_focus": "Await verifier review",
+  "blockers": [],
+  "outputs": ["reports/manual-pilot.md"],
+  "next_checkpoint_at": null,
+  "ttl_seconds": 86400
+}

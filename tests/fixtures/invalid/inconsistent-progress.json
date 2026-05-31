@@ -1,0 +1,15 @@
+{
+  "schema_version": "agent-work-snapshot/v1",
+  "snapshot_id": "snap_invalid_progress",
+  "agent_id": "example-agent",
+  "parent_task_id": "task_example_0001",
+  "observed_at": "2026-01-01T00:00:00Z",
+  "source": "local_file",
+  "status": "working",
+  "progress": {"total": 2, "completed": 2, "blocked": 1},
+  "current_focus": "Demonstrate relational policy validation",
+  "blockers": [],
+  "outputs": [],
+  "next_checkpoint_at": "2026-01-01T01:00:00Z",
+  "ttl_seconds": 3600
+}

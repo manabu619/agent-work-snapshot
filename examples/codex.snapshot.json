@@ -1,0 +1,15 @@
+{
+  "schema_version": "agent-work-snapshot/v1",
+  "snapshot_id": "snap_codex_0001",
+  "agent_id": "example-codex-agent",
+  "parent_task_id": "task_example_0001",
+  "observed_at": "2026-01-01T00:00:00Z",
+  "source": "local_file",
+  "status": "working",
+  "progress": {"total": 3, "completed": 1, "blocked": 0},
+  "current_focus": "Add validation tests",
+  "blockers": [],
+  "outputs": ["tests/test_validation.py"],
+  "next_checkpoint_at": "2026-01-01T01:00:00Z",
+  "ttl_seconds": 3600
+}

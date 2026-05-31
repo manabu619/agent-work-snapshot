@@ -1,0 +1,15 @@
+{
+  "schema_version": "agent-work-snapshot/v1",
+  "snapshot_id": "snap_gemini_0001",
+  "agent_id": "example-gemini-cli-agent",
+  "parent_task_id": "task.example.0003",
+  "observed_at": "2026-01-01T00:20:00Z",
+  "source": "ci_artifact",
+  "status": "checkpoint",
+  "progress": {"total": 2, "completed": 1, "blocked": 0},
+  "current_focus": "Check documentation links",
+  "blockers": [],
+  "outputs": ["artifacts/link-check-report.json"],
+  "next_checkpoint_at": "2026-01-01T02:20:00Z",
+  "ttl_seconds": 7200
+}
