@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Expand documented JSON Schema conformance fixtures and enforce both valid
+  and invalid fixture sets in CI.
+
 ## 0.1.1 - 2026-05-31
 
 - Add CLI `--version`.

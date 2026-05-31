@@ -96,6 +96,8 @@ See [the contract reference](docs/contract.md) and
 [privacy model](docs/privacy-model.md).
 For terminology, see the [glossary](docs/glossary.md).
 For automation, see the [CI integration example](docs/ci-integration.md).
+For validation coverage, see the
+[schema conformance fixture matrix](docs/schema-conformance-fixtures.md).
 
 ## Examples
 

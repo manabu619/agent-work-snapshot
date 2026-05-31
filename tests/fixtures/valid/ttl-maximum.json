@@ -1,0 +1,16 @@
+{
+  "schema_version": "agent-work-snapshot/v1",
+  "snapshot_id": "snap_valid_ttl_maximum",
+  "agent_id": "example-agent",
+  "host_id": "example-host",
+  "parent_task_id": "task_example_ttl_maximum",
+  "observed_at": "2026-01-01T00:00:00Z",
+  "source": "local_file",
+  "status": "completed_candidate",
+  "progress": {"total": 1, "completed": 1, "blocked": 0},
+  "current_focus": "Await verifier review",
+  "blockers": [],
+  "outputs": ["reports/example-result.json"],
+  "next_checkpoint_at": null,
+  "ttl_seconds": 604800
+}
