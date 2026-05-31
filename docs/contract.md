@@ -3,6 +3,9 @@
 Agent Work Snapshot is a read-only JSON report emitted by an agent or adapter.
 It does not instruct a parent system to mutate canonical task state.
 
+Schema URL:
+`https://raw.githubusercontent.com/manabu619/agent-work-snapshot/main/schemas/agent-work-snapshot.schema.json`
+
 ## Fields
 
 | Field | Required | Purpose |

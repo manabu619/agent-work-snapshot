@@ -32,9 +32,13 @@ state still decide whether work is complete.
 Agent Work Snapshot requires Python 3.10 or newer.
 
 ```bash
+git clone https://github.com/manabu619/agent-work-snapshot.git
+cd agent-work-snapshot
 python -m venv .venv
 source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
 python -m pip install -e .
+agent-work-snapshot --version
 agent-work-snapshot validate examples/codex.snapshot.json
 ```
 
@@ -79,15 +83,19 @@ secret scan and human review before external transmission or publication.
 ## Schema Notes
 
 - `host_id` is optional. Use only a pseudonymous identifier.
+- `schema_version` must be `agent-work-snapshot/v1`.
 - `source` is an extensible lowercase identifier such as `local_file`,
   `file_inbox`, `ci_artifact`, or `api_push`.
-- `outputs` should contain relative paths or artifact references.
+- `progress` contains integer `total`, `completed`, and `blocked` counts.
+- `outputs` is an array of relative-path or artifact-reference strings.
 - `completed_candidate` requires verification outside this package.
 - Snapshots are append-only observations or reports. Do not merge them into
   canonical task state without an explicit reconciliation step.
 
 See [the contract reference](docs/contract.md) and
 [privacy model](docs/privacy-model.md).
+For terminology, see the [glossary](docs/glossary.md).
+For automation, see the [CI integration example](docs/ci-integration.md).
 
 ## Examples
 

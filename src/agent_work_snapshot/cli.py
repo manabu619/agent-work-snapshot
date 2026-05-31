@@ -5,6 +5,7 @@ import json
 import sys
 from pathlib import Path
 
+from . import __version__
 from .validation import validate_file
 
 
@@ -13,6 +14,7 @@ def build_parser() -> argparse.ArgumentParser:
         prog="agent-work-snapshot",
         description="Validate a small, read-only AI agent work snapshot.",
     )
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     subparsers = parser.add_subparsers(dest="command", required=True)
     validate = subparsers.add_parser("validate", help="validate a snapshot JSON file")
     validate.add_argument("file", type=Path)
@@ -48,4 +50,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

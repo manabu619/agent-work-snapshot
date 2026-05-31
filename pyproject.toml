@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agent-work-snapshot"
-version = "0.1.0"
+version = "0.1.1"
 description = "A small, read-only checkpoint contract for AI agent work"
 readme = "README.md"
 requires-python = ">=3.10"

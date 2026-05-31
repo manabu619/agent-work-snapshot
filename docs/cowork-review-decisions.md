@@ -32,3 +32,17 @@ Not accepted:
   while freshness is evaluated by the downstream collector at observation
   time.
 
+## Review 0003
+
+Accepted:
+
+- Add an explicit clone step and Windows activation note to Quick Start.
+- Document the actual `schema_version`, structured `progress`, and string-array
+  `outputs` contract in README.
+- Make the Claude Code example task identifier explicitly synthetic.
+- Expand contributor guidance and add an implementation glossary.
+
+Already satisfied:
+
+- README Mermaid rendering. The repository already uses a `mermaid` fence.
+
