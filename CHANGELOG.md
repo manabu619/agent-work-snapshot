@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Document the closed `agent-work-snapshot/v1` extension-field policy and the
+  compatibility path for future shared metadata.
+
 ## 0.1.1 - 2026-05-31
 
 - Add CLI `--version`.
