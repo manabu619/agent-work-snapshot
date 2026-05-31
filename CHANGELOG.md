@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.1 - 2026-05-31
 
 - Add CLI `--version`.
 - Add a clone-based Quick Start and CI integration example.
