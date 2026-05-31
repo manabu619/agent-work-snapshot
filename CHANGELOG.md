@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add stable validation categories while preserving human-readable messages.
+
 ## 0.1.1 - 2026-05-31
 
 - Add CLI `--version`.

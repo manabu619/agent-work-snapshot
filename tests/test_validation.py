@@ -25,7 +25,9 @@ class ValidationTest(unittest.TestCase):
     def test_rejects_missing_required_field(self) -> None:
         snapshot = copy.deepcopy(EXAMPLE)
         del snapshot["agent_id"]
-        self.assertFalse(validate_snapshot(snapshot).is_valid)
+        result = validate_snapshot(snapshot)
+        self.assertFalse(result.is_valid)
+        self.assertTrue(any(error.startswith("[schema] ") for error in result.errors))
 
     def test_rejects_unknown_field(self) -> None:
         snapshot = copy.deepcopy(EXAMPLE)
@@ -41,7 +43,7 @@ class ValidationTest(unittest.TestCase):
         snapshot = copy.deepcopy(EXAMPLE)
         snapshot["progress"]["session_token"] = "redacted"
         errors = validate_snapshot(snapshot).errors
-        self.assertTrue(any("secret-like key" in error for error in errors))
+        self.assertTrue(any(error.startswith("[secret_like_key] ") for error in errors))
 
     def test_rejects_camel_case_secret_like_key(self) -> None:
         snapshot = copy.deepcopy(EXAMPLE)
@@ -53,14 +55,14 @@ class ValidationTest(unittest.TestCase):
         snapshot = copy.deepcopy(EXAMPLE)
         snapshot["progress"] = {"total": 2, "completed": 2, "blocked": 1}
         errors = validate_snapshot(snapshot).errors
-        self.assertTrue(any("completed + blocked" in error for error in errors))
+        self.assertTrue(any(error.startswith("[progress_relation] ") for error in errors))
 
     def test_warns_for_absolute_local_path_by_default(self) -> None:
         snapshot = copy.deepcopy(EXAMPLE)
         snapshot["outputs"] = ["/Users/example/project/report.json"]
         result = validate_snapshot(snapshot)
         self.assertTrue(result.is_valid)
-        self.assertTrue(result.warnings)
+        self.assertTrue(any(warning.startswith("[absolute_local_path] ") for warning in result.warnings))
 
     def test_strict_paths_rejects_absolute_local_path(self) -> None:
         snapshot = copy.deepcopy(EXAMPLE)

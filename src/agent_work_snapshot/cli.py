@@ -33,8 +33,11 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         result = validate_file(args.file, strict_paths=args.strict_paths)
-    except (OSError, json.JSONDecodeError) as error:
-        print(f"[ERROR] {args.file}: {error}", file=sys.stderr)
+    except json.JSONDecodeError as error:
+        print(f"[ERROR] [invalid_json] {args.file}: {error}", file=sys.stderr)
+        return 2
+    except OSError as error:
+        print(f"[ERROR] [file_io] {args.file}: {error}", file=sys.stderr)
         return 2
 
     for warning in result.warnings:

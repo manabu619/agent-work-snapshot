@@ -80,6 +80,10 @@ The validator is not a data-loss-prevention (DLP) tool. It cannot reliably
 detect secrets or personal information embedded in free text. Run a separate
 secret scan and human review before external transmission or publication.
 
+Each finding starts with a stable category such as `[schema]` or
+`[progress_relation]`. See [the contract reference](docs/contract.md) for the
+category list.
+
 ## Schema Notes
 
 - `host_id` is optional. Use only a pseudonymous identifier.

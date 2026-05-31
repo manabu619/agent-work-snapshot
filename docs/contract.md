@@ -37,6 +37,20 @@ completed + blocked <= total
 
 It also rejects recursive secret-like keys and reports absolute local paths.
 
+## Validation Categories
+
+Validation findings start with a stable category in square brackets. The
+remaining human-readable message may become clearer over time.
+
+| Category | Meaning |
+|---|---|
+| `schema` | JSON Schema or RFC 3339-compatible format validation failure |
+| `secret_like_key` | Recursive key-name policy rejection |
+| `progress_relation` | Relational progress policy rejection |
+| `absolute_local_path` | Absolute local path warning, or rejection in strict mode |
+| `invalid_json` | CLI input is not valid JSON |
+| `file_io` | CLI could not read the input file |
+
 ## Reconciliation
 
 A collector or control plane can store snapshots as append-only observations.
