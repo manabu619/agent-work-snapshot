@@ -37,16 +37,6 @@ completed + blocked <= total
 
 It also rejects recursive secret-like keys and reports absolute local paths.
 
-## Compatibility and Extensions
-
-`agent-work-snapshot/v1` is a closed contract. Unknown fields are rejected.
-Do not add adapter-private metadata to a public `v1` snapshot.
-
-Keep private metadata in an adapter-owned sidecar file or storage record. If a
-shared metadata use case emerges, propose a new contract version and evaluate
-an optional namespaced `extensions` object there. See
-[the extension-field policy](extension-field-policy.md).
-
 ## Reconciliation
 
 A collector or control plane can store snapshots as append-only observations.
@@ -57,3 +47,13 @@ Do not treat a snapshot as a direct mutation command.
 
 A reducer is a function that receives a validated, approved event and returns
 the next canonical state. It does not process raw snapshots.
+
+## Compatibility and Extensions
+
+`agent-work-snapshot/v1` is a closed contract. Unknown fields are rejected.
+Do not add adapter-private metadata to a public `v1` snapshot.
+
+Keep private metadata in an adapter-owned sidecar file or storage record. If a
+shared metadata use case emerges, propose a new contract version and evaluate
+an optional namespaced `extensions` object there. See
+[the extension-field policy](extension-field-policy.md).
