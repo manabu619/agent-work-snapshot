@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/manabu619/agent-work-snapshot/main/schemas/agent-work-snapshot.schema.json",
   "title": "Agent Work Snapshot",
   "description": "A small, read-only checkpoint report for AI agent work.",
   "type": "object",

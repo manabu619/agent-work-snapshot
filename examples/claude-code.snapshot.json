@@ -3,7 +3,7 @@
   "snapshot_id": "snap_claude_0001",
   "agent_id": "example-claude-code-agent",
   "host_id": "example-host-a",
-  "parent_task_id": "issue:42",
+  "parent_task_id": "issue:example-42",
   "observed_at": "2026-01-01T00:10:00Z",
   "source": "file_inbox",
   "status": "blocked",
