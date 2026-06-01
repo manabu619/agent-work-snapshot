@@ -15,9 +15,13 @@ the core contract small and makes the compatibility impact explicit.
 ## Schema Compatibility
 
 `agent-work-snapshot/v1` changes should remain backward-compatible. Additive,
-optional fields require a documented use case. A breaking schema change needs a
-new contract version and must not silently change the meaning of an existing
-field.
+optional fields must not be added silently: existing strict `v1` validators
+would reject snapshots that use them. A schema field change requires a
+documented compatibility proposal. A breaking schema change needs a new
+contract version and must not silently change the meaning of an existing field.
+
+Adapter-private metadata belongs outside the public snapshot. See
+[the extension-field policy](docs/extension-field-policy.md).
 
 ## Validation
 
