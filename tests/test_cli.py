@@ -39,6 +39,18 @@ class CliTest(unittest.TestCase):
             check=False,
         )
         self.assertEqual(result.returncode, 2, result.stderr)
+        self.assertIn("[ERROR] [invalid_json]", result.stderr)
+
+    def test_missing_file_returns_two(self) -> None:
+        result = subprocess.run(
+            [sys.executable, "-m", "agent_work_snapshot", "validate", "tests/fixtures/missing.json"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 2, result.stderr)
+        self.assertIn("[ERROR] [file_io]", result.stderr)
 
 
 if __name__ == "__main__":

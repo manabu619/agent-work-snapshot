@@ -31,6 +31,10 @@ ABSOLUTE_LOCAL_PATH_PATTERNS = (
 )
 
 
+def _finding(category: str, path: str, message: str) -> str:
+    return f"[{category}] {path}: {message}"
+
+
 @dataclass(frozen=True)
 class ValidationResult:
     errors: tuple[str, ...]
@@ -63,7 +67,9 @@ def _find_secret_like_keys(value: Any, path: tuple[object, ...] = ()) -> list[st
             normalized = str(key).lower()
             compact = re.sub(r"[^a-z0-9]", "", normalized)
             if any(candidate in normalized or candidate.replace("_", "") in compact for candidate in SECRET_KEY_PARTS):
-                findings.append(f"{_format_json_path((*path, key))}: secret-like key is forbidden")
+                findings.append(
+                    _finding("secret_like_key", _format_json_path((*path, key)), "secret-like key is forbidden")
+                )
             findings.extend(_find_secret_like_keys(child, (*path, key)))
     elif isinstance(value, list):
         for index, child in enumerate(value):
@@ -76,7 +82,11 @@ def _find_absolute_local_paths(value: Any, path: tuple[object, ...] = ()) -> lis
     if isinstance(value, str):
         if any(pattern.search(value) for pattern in ABSOLUTE_LOCAL_PATH_PATTERNS):
             findings.append(
-                f"{_format_json_path(path)}: absolute local path detected; use a relative path or artifact reference"
+                _finding(
+                    "absolute_local_path",
+                    _format_json_path(path),
+                    "absolute local path detected; use a relative path or artifact reference",
+                )
             )
     elif isinstance(value, dict):
         for key, child in value.items():
@@ -99,11 +109,13 @@ def _progress_errors(snapshot: dict[str, Any]) -> list[str]:
 
     errors: list[str] = []
     if completed > total:
-        errors.append("$.progress.completed: must be less than or equal to total")
+        errors.append(_finding("progress_relation", "$.progress.completed", "must be less than or equal to total"))
     if blocked > total:
-        errors.append("$.progress.blocked: must be less than or equal to total")
+        errors.append(_finding("progress_relation", "$.progress.blocked", "must be less than or equal to total"))
     if completed + blocked > total:
-        errors.append("$.progress: completed + blocked must be less than or equal to total")
+        errors.append(
+            _finding("progress_relation", "$.progress", "completed + blocked must be less than or equal to total")
+        )
     return errors
 
 
@@ -113,7 +125,7 @@ def validate_snapshot(snapshot: Any, *, strict_paths: bool = False) -> Validatio
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
 
     errors = [
-        f"{_format_json_path(error.absolute_path)}: {error.message}"
+        _finding("schema", _format_json_path(error.absolute_path), error.message)
         for error in sorted(validator.iter_errors(snapshot), key=lambda item: list(item.absolute_path))
     ]
     errors.extend(_find_secret_like_keys(snapshot))
