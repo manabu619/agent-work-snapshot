@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.2 - 2026-06-01
+
+- Add a schema conformance fixture matrix with representative valid and invalid
+  snapshots.
+- Add stable validation finding categories for automation-friendly CLI
+  integration.
+- Document the extension-field compatibility policy for the closed `v1`
+  contract.
+- Document the separate approval gate for any future PyPI publication.
+
 ## 0.1.1 - 2026-05-31
 
 - Add CLI `--version`.
