@@ -22,6 +22,22 @@ class ValidationTest(unittest.TestCase):
                 result = validate_snapshot(json.loads(path.read_text(encoding="utf-8")))
                 self.assertTrue(result.is_valid, result.errors)
 
+    def test_valid_conformance_fixtures_are_valid(self) -> None:
+        for path in sorted((ROOT / "tests" / "fixtures" / "valid").glob("*.json")):
+            with self.subTest(path=path.name):
+                result = validate_snapshot(json.loads(path.read_text(encoding="utf-8")), strict_paths=True)
+                self.assertTrue(result.is_valid, result.errors)
+
+    def test_invalid_conformance_fixtures_are_rejected(self) -> None:
+        for path in sorted((ROOT / "tests" / "fixtures" / "invalid").glob("*.json")):
+            with self.subTest(path=path.name):
+                if path.name == "malformed.json":
+                    with self.assertRaises(json.JSONDecodeError):
+                        json.loads(path.read_text(encoding="utf-8"))
+                    continue
+                result = validate_snapshot(json.loads(path.read_text(encoding="utf-8")), strict_paths=True)
+                self.assertFalse(result.is_valid)
+
     def test_rejects_missing_required_field(self) -> None:
         snapshot = copy.deepcopy(EXAMPLE)
         del snapshot["agent_id"]
