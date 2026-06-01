@@ -29,3 +29,6 @@ environment and review package metadata.
 
 This is an RC environment snapshot, not a lock file. Re-run the metadata review
 before publishing a release.
+
+For the separate package-publication approval gate, see
+[the PyPI publication evaluation](pypi-publication-evaluation.md).
