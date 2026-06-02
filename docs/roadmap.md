@@ -11,7 +11,7 @@ This roadmap is exploratory. It is not a release commitment.
 
 ## v0.2.x
 
-- Explore a Markdown handoff renderer ✓
+- Add a Markdown handoff renderer ✓
 - Evaluate a versioned extension field only when real shared metadata use cases justify it
 - Add adapter examples when real use cases justify them
 

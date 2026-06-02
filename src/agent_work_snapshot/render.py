@@ -18,7 +18,7 @@ def _escape(text: str) -> str:
 
 def _normalize(text: str) -> str:
     """Collapse newlines and extra whitespace in free-text fields."""
-    return " ".join(text.splitlines()).strip()
+    return " ".join(text.split())
 
 
 def _inline(value: str | None) -> str:

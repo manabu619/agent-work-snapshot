@@ -109,6 +109,12 @@ class RenderUnitTest(unittest.TestCase):
         output = render_snapshot(snapshot)
         self.assertIn("First line Second line", output)
 
+    def test_extra_whitespace_normalized(self) -> None:
+        snapshot = _load("working.json")
+        snapshot["current_focus"] = "Implement   core\tlogic"
+        output = render_snapshot(snapshot)
+        self.assertIn("**Current Focus:** Implement core logic", output)
+
     def test_deterministic_output(self) -> None:
         snapshot = _load("working.json")
         self.assertEqual(render_snapshot(snapshot), render_snapshot(snapshot))
