@@ -27,6 +27,19 @@ work-state report a maintainer needs to review or reconcile progress.
 Validation, configured approval paths, and the system that owns canonical task
 state still decide whether work is complete.
 
+## Concept: WBS-driven AI Work Control
+
+Agent Work Snapshot is the smallest contract in a human-supervised work-control
+model. A WBS or another canonical task model remains the source of truth.
+Agents export read-only checkpoints; external validation, configured approval
+gates, and reducers decide whether canonical task state changes.
+
+This repository implements the snapshot and validation boundary. It does not
+implement a full AI orchestrator, approval service, reducer, or task database.
+
+See [WBS-driven AI Work Control](docs/wbs-driven-ai-work-control.md) for the
+design model, safety boundaries, and a short comparison with PlanExe.
+
 ## Quick Start
 
 Agent Work Snapshot requires Python 3.10 or newer.
