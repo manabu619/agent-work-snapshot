@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: python -m pip install "agent-work-snapshot @ git+https://github.com/manabu619/agent-work-snapshot.git@v0.1.2"
+      - run: python -m pip install "agent-work-snapshot @ git+https://github.com/manabu619/agent-work-snapshot.git@v0.2.0"
       - run: agent-work-snapshot validate --strict-paths path/to/snapshot.json
 ```
 

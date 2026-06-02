@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.2.0 - 2026-06-02
+
 - Add `render` command: converts a validated snapshot JSON to a Markdown
   checkpoint summary.
 - Free-text fields are normalized (newlines collapsed) and Markdown-escaped.
