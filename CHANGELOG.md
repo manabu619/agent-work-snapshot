@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Add a WBS-driven AI Work Control concept document and README link that
+  position Agent Work Snapshot as a small, human-supervised checkpoint
+  contract.
+- Record the post-release CI integration and private vulnerability-reporting
+  guidance refinements.
+
 ## 0.1.2 - 2026-06-01
 
 - Add a schema conformance fixture matrix with representative valid and invalid
