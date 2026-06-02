@@ -107,9 +107,21 @@ describes an autonomous workflow where an agent creates a plan, monitors
 generation, retrieves the output, reads the generated WBS files, and can
 execute work step by step against that plan.
 
+PlanExe is a valuable open-source contribution to agent-assisted planning. Its
+focus on turning goals into inspectable WBS artifacts gives developers a
+practical way to make planning explicit instead of leaving it hidden inside an
+agent transcript. This project references PlanExe with respect for that work
+and for the maintainers making the workflow available to the community.
+
 Agent Work Snapshot addresses a different boundary. It provides a small
 contract for reporting work state back toward a canonical task model without
 directly mutating task truth.
+
+This comparison is not intended to frame the projects as competitors. They
+address adjacent stages of a larger workflow and can be used together: PlanExe
+can help create a plan and guide execution, while Agent Work Snapshot can
+report small execution checkpoints toward a separately owned canonical task
+model and its human-supervised reconciliation path.
 
 | View | PlanExe | Agent Work Snapshot |
 |---|---|---|
@@ -124,8 +136,9 @@ As a short positioning summary:
 - Agent Work Snapshot is closer to a **control-plane/checkpoint pattern**.
 
 These are explanatory summaries, not official PlanExe classifications. The two
-approaches can be complementary: a plan may define tasks, while snapshots
-report execution checkpoints back to the system that owns canonical state.
+approaches are complementary rather than competing: a plan may define tasks,
+while snapshots report execution checkpoints back to the system that owns
+canonical state.
 
 ## Safety Boundaries
 
