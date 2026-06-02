@@ -53,6 +53,7 @@ source .venv/bin/activate
 python -m pip install -e .
 agent-work-snapshot --version
 agent-work-snapshot validate examples/codex.snapshot.json
+agent-work-snapshot render examples/codex.snapshot.json
 ```
 
 To reject absolute local paths instead of reporting warnings:
@@ -113,6 +114,7 @@ See [the contract reference](docs/contract.md) and
 [privacy model](docs/privacy-model.md).
 For terminology, see the [glossary](docs/glossary.md).
 For automation, see the [CI integration example](docs/ci-integration.md).
+For rendering snapshots as Markdown, see the [Markdown handoff renderer](docs/markdown-handoff-renderer.md).
 For validation coverage, see the
 [schema conformance fixture matrix](docs/schema-conformance-fixtures.md).
 
@@ -152,6 +154,7 @@ does not integrate with or require any specific provider.
 python -m unittest discover -s tests -v
 python scripts/validate_examples.py
 python scripts/validate_fixtures.py
+agent-work-snapshot render examples/codex.snapshot.json
 ```
 
 ## License

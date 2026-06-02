@@ -1,0 +1,15 @@
+{
+  "schema_version": "agent-work-snapshot/v1",
+  "snapshot_id": "snap_render_multi_0001",
+  "agent_id": "example-render-agent",
+  "parent_task_id": "task_render_0001",
+  "observed_at": "2026-01-01T00:00:00Z",
+  "source": "local_file",
+  "status": "working",
+  "progress": {"total": 2, "completed": 1, "blocked": 0},
+  "current_focus": "Line one\nLine two\nLine three",
+  "blockers": ["First line\nSecond line"],
+  "outputs": [],
+  "next_checkpoint_at": null,
+  "ttl_seconds": 3600
+}
