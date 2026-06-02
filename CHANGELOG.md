@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Add `render` command: converts a validated snapshot JSON to a Markdown
+  checkpoint summary.
+- Free-text fields are normalized (newlines collapsed) and Markdown-escaped.
+- Absolute local paths are always rejected by the renderer (strict mode).
+- `completed_candidate` output includes a disclaimer that it is not a close command.
+
+## Unreleased
+
 - Add a WBS-driven AI Work Control concept document and README link that
   position Agent Work Snapshot as a small, human-supervised checkpoint
   contract.
