@@ -18,7 +18,7 @@ class CliTest(unittest.TestCase):
             check=False,
         )
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(result.stdout.strip(), "agent-work-snapshot 0.1.2")
+        self.assertEqual(result.stdout.strip(), "agent-work-snapshot 0.2.0")
 
     def test_valid_example_returns_zero(self) -> None:
         result = subprocess.run(
