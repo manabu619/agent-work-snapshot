@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add the `WdAC` abbreviation for WBS-driven Agent Control and tighten the
+  Japanese README explanation.
 - Refine the README positioning of Agent Work Snapshot as the smallest
   OSS-friendly piece of the broader WBS-driven Agent Control concept.
 
