@@ -10,7 +10,7 @@
 - Absolute local paths are always rejected by the renderer (strict mode).
 - `completed_candidate` output includes a disclaimer that it is not a close command.
 
-- Add a WBS-driven AI Work Control concept document and README link that
+- Add a WBS-driven Agent Control concept document and README link that
   position Agent Work Snapshot as a small, human-supervised checkpoint
   contract.
 - Record the post-release CI integration and private vulnerability-reporting

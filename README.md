@@ -40,9 +40,9 @@ work-state report a maintainer needs to review or reconcile progress.
 Validation, configured approval paths, and the system that owns canonical task
 state still decide whether work is complete.
 
-## Concept: WBS-driven AI Work Control
+## Concept: WBS-driven Agent Control
 
-WBS-driven AI Work Control starts from a familiar project-management practice:
+WBS-driven Agent Control starts from a familiar project-management practice:
 PMs and technical leads already use a WBS, issue tracker, or similar task model
 to split work, assign owners, review progress, and approve completion. PMBOK,
 ITSM, systems integration, web-service delivery, and internal software projects
@@ -74,7 +74,7 @@ teams already know and trust to AI agents, automation, and human collaboration.
 This repository implements the snapshot and validation boundary. It does not
 implement a full AI orchestrator, approval service, reducer, or task database.
 
-See [WBS-driven AI Work Control](docs/wbs-driven-ai-work-control.md) for the
+See [WBS-driven Agent Control](docs/wbs-driven-agent-control.md) for the
 design model, safety boundaries, and a short comparison with PlanExe.
 
 ## Quick Start

@@ -1,7 +1,7 @@
-# WBS-driven AI Work Control
+# WBS-driven Agent Control
 
 Agent Work Snapshot is the smallest contract in a broader design model:
-**WBS-driven AI Work Control**.
+**WBS-driven Agent Control**.
 
 The model is intentionally human-supervised. A WBS or another canonical task
 model remains the source of truth. Agents do work and export read-only
