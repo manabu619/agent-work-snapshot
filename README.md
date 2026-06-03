@@ -4,8 +4,16 @@ Agent Work Snapshot is a small, read-only checkpoint contract for AI agent work.
 It helps coding agents and local automation report status, progress, blockers,
 outputs, TTL, and completion candidates without collecting full transcripts.
 
-The initial release is intentionally small: a JSON Schema, a Python validator
-CLI, examples, tests, and documentation. It is not a full AI orchestrator.
+At a higher level, it is a building block for project owners who need safe,
+reviewable collaboration across multiple agents, terminals, machines, team
+members, and the agents those members operate. Instead of tying control to one
+tool's private logs, every participant can publish the same small checkpoint
+contract, so the owner can reconcile work as AI coding tools and agent managers
+continue to evolve.
+
+The package is intentionally small: a JSON Schema, a Python validator CLI, a
+Markdown renderer, examples, tests, and documentation. It is not a full AI
+orchestrator.
 
 ```mermaid
 flowchart LR
@@ -33,6 +41,11 @@ Agent Work Snapshot is the smallest contract in a human-supervised work-control
 model. A WBS or another canonical task model remains the source of truth.
 Agents export read-only checkpoints; external validation, configured approval
 gates, and reducers decide whether canonical task state changes.
+
+This makes it useful as a neutral control-plane boundary for teams that run
+more than one AI tool or more than one human-agent pair at the same time. The
+snapshot contract is meant to remain stable even as the surrounding tools,
+agent managers, dashboards, and execution environments change.
 
 This repository implements the snapshot and validation boundary. It does not
 implement a full AI orchestrator, approval service, reducer, or task database.
