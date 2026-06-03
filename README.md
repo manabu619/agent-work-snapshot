@@ -5,13 +5,16 @@
 Agent Work Snapshot is a small, read-only checkpoint contract for AI agent work.
 It helps coding agents and local automation report status, progress, blockers,
 outputs, TTL, and completion candidates without collecting full transcripts.
+When human collaborators and implementers join the same project, the same
+contract can also be used to report their task-level work state without
+mixing it into private chat logs or tool-specific histories.
 
 At a higher level, it is a building block for project owners who need safe,
 reviewable collaboration across multiple agents, terminals, machines, team
-members, and the agents those members operate. Instead of tying control to one
-tool's private logs, every participant can publish the same small checkpoint
-contract, so the owner can reconcile work as AI coding tools and agent managers
-continue to evolve.
+members, human implementers, and the AI agents those members operate. Instead
+of tying control to one tool's private logs, every participant can publish the
+same small checkpoint contract, so the owner can reconcile work as AI coding
+tools and agent managers continue to evolve.
 
 The package is intentionally small: a JSON Schema, a Python validator CLI, a
 Markdown renderer, examples, tests, and documentation. It is not a full AI
@@ -39,15 +42,34 @@ state still decide whether work is complete.
 
 ## Concept: WBS-driven AI Work Control
 
-Agent Work Snapshot is the smallest contract in a human-supervised work-control
-model. A WBS or another canonical task model remains the source of truth.
-Agents export read-only checkpoints; external validation, configured approval
-gates, and reducers decide whether canonical task state changes.
+WBS-driven AI Work Control starts from a familiar project-management practice:
+PMs and technical leads already use a WBS, issue tracker, or similar task model
+to split work, assign owners, review progress, and approve completion. PMBOK,
+ITSM, systems integration, web-service delivery, and internal software projects
+may use different terminology, but the control pattern is familiar.
+
+The idea is to apply that proven pattern to AI-assisted development. In this
+context, an "agent" is not only an AI coding agent. It can be Codex, Claude
+Code, Gemini CLI, a local automation job, a human collaborator, or a human
+implementer. The manager still needs the same basic answer: which task is being
+worked on, by whom or by what, how far it has progressed, what was produced,
+and whether it is ready to approve.
+
+Agent Work Snapshot is the smallest reporting contract for that model. A WBS,
+issue tracker, project board, or another canonical task model remains the
+source of truth. Agents and contributors export read-only checkpoints; external
+validation, configured approval gates, and reducers decide whether canonical
+task state changes.
 
 This makes it useful as a neutral control-plane boundary for teams that run
-more than one AI tool or more than one human-agent pair at the same time. The
-snapshot contract is meant to remain stable even as the surrounding tools,
-agent managers, dashboards, and execution environments change.
+more than one AI tool, more than one human-agent pair, or a mix of AI and human
+contributors at the same time. The snapshot contract is meant to remain stable
+even as the surrounding tools, agent managers, dashboards, and execution
+environments change.
+
+In other words, Agent Work Snapshot does not invent a brand-new management
+discipline for the AI era. It extends the WBS-based control model that project
+teams already know and trust to AI agents, automation, and human collaboration.
 
 This repository implements the snapshot and validation boundary. It does not
 implement a full AI orchestrator, approval service, reducer, or task database.
