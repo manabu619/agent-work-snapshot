@@ -7,6 +7,13 @@ The model is intentionally human-supervised. A WBS or another canonical task
 model remains the source of truth. Agents do work and export read-only
 snapshots, but they do not directly mutate canonical task state.
 
+The goal is safe, accurate collaboration across multiple agents, terminals,
+machines, team members, and the agents those members operate. As AI coding
+tools and agent-management systems evolve, the stable part should be the
+control boundary: a small checkpoint contract that lets the project owner
+review, reconcile, and approve work without depending on any single tool's
+private conversation log.
+
 ```mermaid
 flowchart LR
   W["Canonical WBS or Task Model"] --> A["Agent Work"]
@@ -27,6 +34,11 @@ When several coding agents, local tools, or automation jobs contribute to a
 project, work state can become scattered across transcripts and tool-specific
 logs. Those sources are useful locally, but they are difficult to reconcile and
 risky to aggregate.
+
+This becomes more important when a project owner is coordinating work across
+multiple devices or across several contributors, each with their own AI tools.
+The checkpoint contract gives every participant the same reporting surface
+without granting agents direct authority to mutate canonical task truth.
 
 A canonical task model gives maintainers one place to decide:
 
