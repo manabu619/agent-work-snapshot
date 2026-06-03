@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Refine the README positioning of Agent Work Snapshot as the smallest
+  OSS-friendly piece of the broader WBS-driven Agent Control concept.
+
 ## 0.2.0 - 2026-06-02
 
 - Add `render` command: converts a validated snapshot JSON to a Markdown

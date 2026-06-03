@@ -40,7 +40,16 @@ work-state report a maintainer needs to review or reconcile progress.
 Validation, configured approval paths, and the system that owns canonical task
 state still decide whether work is complete.
 
-## Concept: WBS-driven Agent Control
+## Bigger Concept: WBS-driven Agent Control
+
+Agent Work Snapshot is not meant to be just another standalone JSON Schema.
+It comes from a broader idea: **WBS-driven Agent Control**, where a WBS or
+canonical task model remains the source of truth while AI agents, human
+collaborators, and human implementers report work in a reviewable way.
+
+The snapshot is the smallest OSS-friendly piece of that model. It gives each
+participant a neutral way to report task-linked work state without exposing
+full conversations or tool-specific histories.
 
 WBS-driven Agent Control starts from a familiar project-management practice:
 PMs and technical leads already use a WBS, issue tracker, or similar task model

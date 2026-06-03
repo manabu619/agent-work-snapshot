@@ -89,7 +89,11 @@ agent-work-snapshot validate --strict-paths examples/codex.snapshot.json
 }
 ```
 
-## WBS-driven Agent Controlとの関係
+## 上位概念: WBS-driven Agent Controlから見たSnapshot
+
+Agent Work Snapshot は、単体のJSON Schemaとしてだけ考えたものではありません。上位概念として、WBSやcanonical task modelを正本にしながら、AIエージェント、共同開発者、人間の実装担当者の作業を安全に把握し、レビューし、承認する **WBS-driven Agent Control** という考え方があります。
+
+その中で、最初にOSSとして切り出しやすく、他の開発環境にも組み込みやすい最小部品が Agent Work Snapshot です。早い話、WBSやissue trackerに紐づく作業報告だけを、会話全文やツールごとの履歴から切り離してそろえるためのsnapshot contractです。
 
 WBS-driven Agent Control は、かなり素直に言うと「PMやPLがWBSでタスクと担当者を管理する」という、昔からあるプロジェクト管理の考え方を、AI駆動開発にもそのまま使えるようにしたものです。
 
@@ -103,7 +107,7 @@ Agent Work Snapshot は、そのための最小の報告フォーマットです
 
 つまり Agent Work Snapshot は、AI時代向けにまったく新しい管理手法を作るというより、すでに現場で信頼されているWBSベースの管理を、AIエージェントや人間の共同作業にも拡張するための小さな部品です。
 
-Agent Work Snapshot は、小さなsnapshot contractです。単体でも「AIエージェントや共同開発者の作業報告をそろえる」価値がありますが、本来いちばん分かりやすいのは、その上にWBS-drivenなAgent Controlの仕組みが乗るイメージです。いきなり大きな管理システムを公開するのではなく、まず外部の開発者にも使いやすく、秘密情報を含まず、他のAIツールにも組み込みやすい小さなcontractから公開しています。
+Agent Work Snapshot は、小さなsnapshot contractです。単体でも「AIエージェントや共同開発者の作業報告をそろえる」価値がありますが、本来いちばん分かりやすいのは、その上にWBS-drivenなAgent Controlの仕組みが乗るイメージです。いきなり大きな管理システムを公開するのではなく、上位概念の中から、まず外部の開発者にも使いやすく、秘密情報を含まず、他のAIツールにも組み込みやすい小さなcontractを公開しています。
 
 詳しくは [WBS-driven Agent Control](docs/wbs-driven-agent-control.md) を参照してください。
 
