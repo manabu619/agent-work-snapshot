@@ -1,5 +1,7 @@
 # Agent Work Snapshot
 
+[日本語版 README](README.ja.md)
+
 Agent Work Snapshot is a small, read-only checkpoint contract for AI agent work.
 It helps coding agents and local automation report status, progress, blockers,
 outputs, TTL, and completion candidates without collecting full transcripts.
