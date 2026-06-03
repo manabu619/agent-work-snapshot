@@ -105,6 +105,18 @@ Agent Work Snapshot は、そのための最小の報告フォーマットです
 
 詳しくは [WBS-driven AI Work Control](docs/wbs-driven-ai-work-control.md) を参照してください。
 
+## wbs-controlとの関係
+
+Agent Work Snapshot は、小さなsnapshot contractです。単体でも「AIエージェントや共同開発者の作業報告をそろえる」価値がありますが、本来いちばん分かりやすいのは、その上に `wbs-control` のようなWork Control Planeが乗るイメージです。
+
+`wbs-control` は、WBSやissue trackerのようなタスク正本を中心に、AIエージェント、人間の実装者、共同開発者、ローカル自動化の作業状態を集め、検証し、管理者が承認してから正本へ反映するための上位システム構想です。PM/PLがWBSでプロジェクトを管理するのと同じ感覚で、AI駆動開発の作業を見える化し、暴走や取り違えを防ぎ、承認された変更だけを前に進めることを狙っています。
+
+その中で Agent Work Snapshot は、各エージェントや担当者が `wbs-control` 側へ返す「最小の作業報告」です。誰が、どのタスクで、何をしていて、どこまで進み、何を出力し、次に何が必要かを、会話全文ではなく短いcheckpointとして渡します。
+
+つまり、Agent Work Snapshot は `wbs-control` の布石です。いきなり大きな管理システムを公開するのではなく、まず外部の開発者にも使いやすく、秘密情報を含まず、他のAIツールにも組み込みやすい小さなcontractから公開しています。
+
+このリポジトリ自体は、`wbs-control` 全体を実装するものではありません。ここで提供するのは、将来のWork Control Plane、dashboard、approval workflow、reducer、task databaseなどが使える、安定したread-only checkpoint boundaryです。
+
 ## PlanExeとの違い
 
 PlanExe は、goalから計画やWBSを作り、実行に使える形にするplanner/executor patternに近いプロジェクトです。
