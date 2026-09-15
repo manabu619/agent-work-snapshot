@@ -187,6 +187,11 @@ does not integrate with or require any specific provider.
 
 ## Related Concepts
 
+[Anima Index](https://github.com/manabu619/anima-index) provides a file-based
+project context and onboarding layer for AI agents. Agent Work Snapshot can be
+used alongside it to report task-level progress and checkpoints without
+collecting full conversation history.
+
 | Project or concept | Primary role | Relationship |
 |---|---|---|
 | [AGENTS.md](https://agents.md/) | Repository instructions and context for coding agents | Agent Work Snapshot reports small work-state checkpoints in the opposite direction |
