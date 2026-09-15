@@ -2,9 +2,17 @@
 
 [日本語版 README](README.ja.md)
 
-Agent Work Snapshot is a small, read-only checkpoint contract for AI agent work.
-It helps coding agents and local automation report status, progress, blockers,
-outputs, TTL, and completion candidates without collecting full transcripts.
+Agent Work Snapshot is a provider-neutral JSON Schema and Python CLI for
+read-only AI agent work snapshots, task-level progress tracking, and
+human-in-the-loop review workflows. It helps coding agents and local
+automation report status, progress, blockers, outputs, TTL, and completion
+candidates without collecting full transcripts.
+
+It is useful for multi-agent coordination and AI agent observability when
+Codex, Claude Code, Gemini CLI, local LLMs, or other workers operate across
+different terminals or machines. Each worker can export the same small,
+reviewable checkpoint while a project owner or canonical task system decides
+whether work is actually accepted.
 When human collaborators and implementers join the same project, the same
 contract can also be used to report their task-level work state without
 mixing it into private chat logs or tool-specific histories.

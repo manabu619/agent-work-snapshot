@@ -1,6 +1,6 @@
 # Agent Work Snapshot
 
-Agent Work Snapshot は、AIエージェントの作業状況を小さなJSONとして報告するための、read-onlyなチェックポイント契約です。
+Agent Work Snapshot は、複数AIエージェントの作業状況を安全に共有するための、provider-neutralなJSON SchemaとPython CLIです。AIエージェントの進捗管理、タスク単位の作業報告、human-in-the-loopのレビューに使える、read-onlyなチェックポイント契約を提供します。
 
 Codex、Claude Code、Gemini CLI、ローカルLLM、手元の自動化スクリプトなど、複数のAIツールを同じプロジェクトで使い始めると、誰が何を進めていて、どこで止まっていて、何を成果物として出したのかが会話ログやツールごとの履歴に散らばりがちです。人間の共同開発者や実装担当者も混ざると、状況確認はさらに難しくなります。
 
